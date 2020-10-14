@@ -1,0 +1,43 @@
+<template>
+  <div>
+    <label for="todo-input">New todo:</label>
+    <b-form-input
+      type="text"
+      id="todo-input"
+      v-model="value"
+      placeholder="Enter new todo"
+    />
+    <b-button variant="primary" @click="addTodo" class="add-btn">Add</b-button>
+  </div>
+</template>
+
+<script>
+export default {
+  computed: {
+    value: {
+      get() {
+        return this.$store.state.newTodo;
+      },
+      set(value) {
+        this.$store.state.newTodo = value;
+      }
+    }
+  },
+  methods: {
+    addTodo() {
+      if (this.value === "") {
+        alert("Không được để trống");
+      } else {
+        this.$store.commit("addTodo", this.value);
+        this.$store.state.newTodo = "";
+      }
+    }
+  }
+};
+</script>
+
+<style>
+.add-btn {
+  margin-top: 10px;
+}
+</style>
