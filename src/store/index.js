@@ -4,6 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  strict: true,
   state: {
     todos: ["Todo 1", "Todo 2", "Todo 4"],
     completedTodos: ["Todo 3"],
