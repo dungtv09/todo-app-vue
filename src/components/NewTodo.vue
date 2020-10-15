@@ -30,7 +30,6 @@ export default {
         alert("Không được để trống");
       } else {
         this.$store.commit("addTodo", this.value);
-        this.$store.state.newTodo = "";
       }
     }
   }

@@ -4,7 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  strict: process.env.NODE_ENV !== "production",
+  // strict: process.env.NODE_ENV !== "production",
   state: {
     todos: ["Todo 1", "Todo 2", "Todo 4"],
     completedTodos: ["Todo 3"],
@@ -14,6 +14,7 @@ export default new Vuex.Store({
   mutations: {
     addTodo(state, todo) {
       state.todos.push(todo);
+      state.newTodo = "";
     },
     editTodo(state, index) {
       state.newTodo = state.todos[index];
