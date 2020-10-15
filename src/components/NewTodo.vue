@@ -6,6 +6,7 @@
       id="todo-input"
       v-model="value"
       placeholder="Enter new todo"
+      @keyup.enter="addTodo"
     />
     <b-button variant="primary" @click="addTodo" class="add-btn">Add</b-button>
   </div>
