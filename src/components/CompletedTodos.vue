@@ -7,7 +7,7 @@
         :key="index"
         class="completed-todo"
       >
-        {{ todo }}
+        {{ todo.body }}
       </li>
     </ul>
     <b-button variant="danger" @click="clearCompletedTodos">Clear all</b-button>
