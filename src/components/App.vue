@@ -29,6 +29,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 50px;
   max-width: 700px;
+  margin: auto;
 }
 ul {
   padding: 0;
