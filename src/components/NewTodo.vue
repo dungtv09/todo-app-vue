@@ -14,22 +14,18 @@
 
 <script>
 export default {
-  computed: {
-    value: {
-      get() {
-        return this.$store.state.newTodo;
-      },
-      set(value) {
-        this.$store.state.newTodo = value;
-      }
-    }
+  data() {
+    return {
+      value: ""
+    };
   },
   methods: {
     addTodo() {
       if (this.value === "") {
         alert("Không được để trống");
       } else {
-        this.$store.commit("addTodo", this.value);
+        this.$store.commit("addTodo", { body: this.value, isEditing: false });
+        this.value = "";
       }
     }
   }

@@ -6,19 +6,24 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   // strict: process.env.NODE_ENV !== "production",
   state: {
-    todos: ["Todo 1", "Todo 2", "Todo 4"],
-    completedTodos: ["Todo 3"],
-    newTodo: ""
+    todos: [
+      { body: "Todo 1", isEditing: false },
+      { body: "Todo 2", isEditing: false },
+      { body: "Todo 4", isEditing: false }
+    ],
+    completedTodos: [{ body: "Todo 3", isEditing: false }]
   },
   getters: {},
   mutations: {
     addTodo(state, todo) {
       state.todos.push(todo);
-      state.newTodo = "";
     },
     editTodo(state, index) {
-      state.newTodo = state.todos[index];
-      state.todos.splice(index, 1);
+      Vue.set(state.todos[index], "isEditing", true);
+    },
+    editDone(state, payload) {
+      Vue.set(state.todos[payload.index], "isEditing", false);
+      Vue.set(state.todos[payload.index], "body", payload.value);
     },
     completeTodo(state, payload) {
       state.completedTodos.push(payload.todo);
